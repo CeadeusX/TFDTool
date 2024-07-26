@@ -9,6 +9,35 @@
       Title="VoidFragmentsPage">
 
     <Grid>
-        <TextBlock Text="SOON" FontSize="40" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="cbbElement" IsEditable="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="0" SelectionChanged="cbbElement_SelectionChanged" Margin="5,0,5,0">
+            </ComboBox>
+            <ComboBox x:Name="cbbFragmentType" IsEditable="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" SelectionChanged="cbbFragmentType_SelectionChanged" Margin="5,0,5,0">
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <DataGrid CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" x:Name="tblLocations" AutoGenerateColumns="False" IsReadOnly="True" Margin="10" Background="Transparent" Foreground="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Zone" Binding="{Binding Zone}" Width="*"/>
+                    <DataGridTextColumn Header="SubZone" Binding="{Binding SubZone}" Width="*"/>
+                    <DataGridTextColumn Header="Element" Binding="{Binding Element}" Width="100"/>
+                    <DataGridTextColumn Header="Monomer" Binding="{Binding Monomer}" Width="75"/>
+                    <DataGridTextColumn Header="Polymer" Binding="{Binding Polymer}" Width="75"/>
+                    <DataGridTextColumn Header="Inorganic" Binding="{Binding Inorganic}" Width="75"/>
+                    <DataGridTextColumn Header="Organic" Binding="{Binding Organic}" Width="75"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Page>
